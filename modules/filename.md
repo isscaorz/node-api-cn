@@ -6,17 +6,15 @@ added: v0.0.1
 
 * {string}
 
-The file name of the current module. This is the resolved absolute path of the
-current module file.
+当前模块的文件名。也就是对当前模块文件绝对路径的解析。
 
-For a main program this is not necessarily the same as the file name used in the
-command line.
+作为一个主程序，这里的绝对路径没必要和在命令行中使用的一样。
 
-See [`__dirname`][] for the directory name of the current module.
+参照当前模块的文件夹名称[`__dirname`][]
 
-Examples:
+示例：
 
-Running `node example.js` from `/Users/mjr`
+运行位于`/Users/mjr`目录下的`example.js`文件：```node example.js```
 
 ```js
 console.log(__filename);
@@ -25,13 +23,11 @@ console.log(__dirname);
 // Prints: /Users/mjr
 ```
 
-Given two modules: `a` and `b`, where `b` is a dependency of
-`a` and there is a directory structure of:
+给定`a`和`b`两个模块，设定`b`是`a`的一个依赖，以下是两者的目录结构：
 
 * `/Users/mjr/app/a.js`
 * `/Users/mjr/app/node_modules/b/b.js`
 
-References to `__filename` within `b.js` will return
-`/Users/mjr/app/node_modules/b/b.js` while references to `__filename` within
-`a.js` will return `/Users/mjr/app/a.js`.
+在`b.js`中引用`__filename`，会返回`/Users/mjr/app/node_modules/b/b.js`
+在`a.js`中引用`__filename`，会返回`/Users/mjr/app/a.js`
 
